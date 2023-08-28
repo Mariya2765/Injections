@@ -16,7 +16,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func createTodayNavigationController() -> UINavigationController {
         let todayViewController = UINavigationController(rootViewController: TodayViewController())
-        todayViewController.tabBarItem = UITabBarItem(title: "Сегодня", image: UIImage(systemName: "cross.circle"), tag: 0)
+        
+        todayViewController.tabBarItem = UITabBarItem(title: "Сегодня", image: UIImage(named: "inj 2"), tag: 0)
 
        let appearanceToday = UINavigationBarAppearance()
         appearanceToday.configureWithDefaultBackground()
