@@ -10,6 +10,7 @@ import Foundation
 
 struct Medicine {
     let medID: Int
+    let image: String
     var textName: String
 
 }
@@ -19,16 +20,19 @@ public class InjectsProvider {
         [
             Medicine(
                 medID: 0,
+                image: "hand",
                 textName: "Инфибета"
             ),
 
             Medicine(
                 medID: 0,
+                image: "hear",
                 textName: "Копаксон"
             ),
 
             Medicine(
                 medID: 0,
+                image: "shoeprints",
                 textName: "Эумилео"
             )
         ]

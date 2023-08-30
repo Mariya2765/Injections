@@ -22,6 +22,15 @@ class InjectorsTableViewCell: UITableViewCell {
         return text
     }()
 
+    private let injectImageView: UIImageView = {
+        let image = UIImageView()
+        image.contentMode = .scaleAspectFill
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.isUserInteractionEnabled = true
+        return image
+    }()
+
+
     private let colorView: UIView = {
         let color = UIView()
         color.backgroundColor = UIColor(red: 0.98, green: 0.79, blue: 0.60, alpha: 0.50)
@@ -41,13 +50,12 @@ class InjectorsTableViewCell: UITableViewCell {
 
     }
 
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+
     func setUpMyCell() {
 
         contentView.addSubview(colorView)
         colorView.addSubview(injectLabel)
+        colorView.addSubview(injectImageView)
 //        colorView.addSubview(cityImageView)
 //        colorView.addSubview(playgroundsAmountLabel)
 //        contentView.addSubview(injectLabel)
@@ -63,17 +71,17 @@ class InjectorsTableViewCell: UITableViewCell {
             colorView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
             colorView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
             colorView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-            colorView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10)
+            colorView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
 
-//            cityImageView.topAnchor.constraint(equalTo: colorView.topAnchor, constant: 20),
-//            cityImageView.bottomAnchor.constraint(equalTo: colorView.bottomAnchor, constant: -20),
-//            cityImageView.leadingAnchor.constraint(equalTo: colorView.leadingAnchor, constant: 20),
-//            cityImageView.heightAnchor.constraint(equalToConstant: 50),
-//            cityImageView.widthAnchor.constraint(equalTo: cityImageView.heightAnchor),
+            injectImageView.topAnchor.constraint(equalTo: colorView.topAnchor, constant: 20),
+            injectImageView.bottomAnchor.constraint(equalTo: colorView.bottomAnchor, constant: -20),
+            injectImageView.leadingAnchor.constraint(equalTo: colorView.leadingAnchor, constant: 20),
+            injectImageView.heightAnchor.constraint(equalToConstant: 50),
+            injectImageView.widthAnchor.constraint(equalTo: injectImageView.heightAnchor),
 //
-//            cityLabel.topAnchor.constraint(equalTo:  cityImageView.topAnchor),
-//            cityLabel.leadingAnchor.constraint(equalTo: cityImageView.trailingAnchor, constant: 15),
-//            cityLabel.trailingAnchor.constraint(equalTo: colorView.trailingAnchor, constant: -15),
+            injectLabel.topAnchor.constraint(equalTo:  injectImageView.topAnchor),
+            injectLabel.leadingAnchor.constraint(equalTo: injectImageView.trailingAnchor, constant: 15),
+            injectLabel.trailingAnchor.constraint(equalTo: colorView.trailingAnchor, constant: -15),
 
 
 //            playgroundsAmountLabel.topAnchor.constraint(equalTo: cityLabel.bottomAnchor),
@@ -89,16 +97,15 @@ class InjectorsTableViewCell: UITableViewCell {
         self.injectID = injects.medID
 
         injectLabel.text = injects.textName
+        injectImageView.image = UIImage(named: injects.image)
 //        cityImageView.image = UIImage(named: city.image)
 //        playgroundsAmountLabel.text = "Детских площадок: \(city.playgrounds)"
 
 
     }
-//
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
-//}
 
 }
