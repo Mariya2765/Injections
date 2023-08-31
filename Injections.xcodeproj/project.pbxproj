@@ -11,6 +11,8 @@
 		4C204F4F2A96903E0084E71A /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C204F4E2A96903E0084E71A /* HistoryViewController.swift */; };
 		4C204F512A9E670C0084E71A /* InjectorsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C204F502A9E670C0084E71A /* InjectorsTableViewCell.swift */; };
 		4C204F532A9E77610084E71A /* InjectsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C204F522A9E77610084E71A /* InjectsProvider.swift */; };
+		4C204F552AA11F110084E71A /* InjectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C204F542AA11F110084E71A /* InjectCollectionViewCell.swift */; };
+		4C204F572AA11F740084E71A /* SaveInjectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C204F562AA11F740084E71A /* SaveInjectCollectionViewCell.swift */; };
 		4C7460552A9541AB009FC266 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7460542A9541AB009FC266 /* AppDelegate.swift */; };
 		4C7460572A9541AB009FC266 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7460562A9541AB009FC266 /* SceneDelegate.swift */; };
 		4C7460592A9541AB009FC266 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7460582A9541AB009FC266 /* ViewController.swift */; };
@@ -24,6 +26,8 @@
 		4C204F4E2A96903E0084E71A /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		4C204F502A9E670C0084E71A /* InjectorsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectorsTableViewCell.swift; sourceTree = "<group>"; };
 		4C204F522A9E77610084E71A /* InjectsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectsProvider.swift; sourceTree = "<group>"; };
+		4C204F542AA11F110084E71A /* InjectCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectCollectionViewCell.swift; sourceTree = "<group>"; };
+		4C204F562AA11F740084E71A /* SaveInjectCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveInjectCollectionViewCell.swift; sourceTree = "<group>"; };
 		4C7460512A9541AB009FC266 /* Injections.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Injections.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C7460542A9541AB009FC266 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C7460562A9541AB009FC266 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -48,6 +52,8 @@
 		4C7460482A9541AB009FC266 = {
 			isa = PBXGroup;
 			children = (
+				4C204F562AA11F740084E71A /* SaveInjectCollectionViewCell.swift */,
+				4C204F542AA11F110084E71A /* InjectCollectionViewCell.swift */,
 				4C204F522A9E77610084E71A /* InjectsProvider.swift */,
 				4C204F502A9E670C0084E71A /* InjectorsTableViewCell.swift */,
 				4C204F4E2A96903E0084E71A /* HistoryViewController.swift */,
@@ -153,7 +159,9 @@
 				4C7460592A9541AB009FC266 /* ViewController.swift in Sources */,
 				4C7460552A9541AB009FC266 /* AppDelegate.swift in Sources */,
 				4C204F532A9E77610084E71A /* InjectsProvider.swift in Sources */,
+				4C204F552AA11F110084E71A /* InjectCollectionViewCell.swift in Sources */,
 				4C204F4F2A96903E0084E71A /* HistoryViewController.swift in Sources */,
+				4C204F572AA11F740084E71A /* SaveInjectCollectionViewCell.swift in Sources */,
 				4C204F4D2A968EB20084E71A /* SettingsViewController.swift in Sources */,
 				4C204F512A9E670C0084E71A /* InjectorsTableViewCell.swift in Sources */,
 				4C7460572A9541AB009FC266 /* SceneDelegate.swift in Sources */,
