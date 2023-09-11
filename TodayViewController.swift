@@ -4,7 +4,7 @@
 //
 //  Created by Мария on 22.08.2023.
 //
-
+// самый первый экран, который появляется поле загрузки приложения. Отображает календарь, текущий день, пишет дату вверху
 import Foundation
 import UIKit
 class TodayViewController: UIViewController {
@@ -26,15 +26,15 @@ class TodayViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.backgroundColor = UIColor(red: 0.67, green: 0.79, blue: 0.74, alpha: 1.5)
         collectionView.showsVerticalScrollIndicator = true
-        collectionView.register(InjectCollectionViewCell.self, forCellWithReuseIdentifier: Constants.reuseIdentifier)
+        collectionView.register(InjectorsCollectionViewCell.self, forCellWithReuseIdentifier: Constants.reuseIdentifier)
         collectionView.register(SaveInjectCollectionViewCell.self, forCellWithReuseIdentifier: Constants.collectionID)
 
         navigationItem.title = "Сегодня"
 
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addHabit))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewInject))
         navigationItem.rightBarButtonItem?.tintColor = UIColor(red: 161/255.0, green: 22/255.0, blue: 204/255.0, alpha: 1.0)
 
-        HabitStoreObserver.shared.addObserver(self)
+//        HabitStoreObserver.shared.addObserver(self)
         collectionView.reloadData()
     }
 
@@ -46,58 +46,51 @@ class TodayViewController: UIViewController {
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
-    @objc private func addHabit() {
-        let habitVc = HabitViewController()
-        let habitNavContr = UINavigationController(rootViewController: habitVc)
-
-        let appearanceNavContr = UINavigationBarAppearance()
-        appearanceNavContr.configureWithDefaultBackground()
-        habitNavContr.navigationBar.standardAppearance = appearanceNavContr
-        habitNavContr.navigationBar.scrollEdgeAppearance = appearanceNavContr
-        habitNavContr.navigationBar.prefersLargeTitles = false
-        habitNavContr.navigationBar.backgroundColor = .white
+    @objc private func addNewInject() {
+//        let habitVc = HabitViewController()
+//        let habitNavContr = UINavigationController(rootViewController: habitVc)
+//
+//        let appearanceNavContr = UINavigationBarAppearance()
+//        appearanceNavContr.configureWithDefaultBackground()
+//        habitNavContr.navigationBar.standardAppearance = appearanceNavContr
+//        habitNavContr.navigationBar.scrollEdgeAppearance = appearanceNavContr
+//        habitNavContr.navigationBar.prefersLargeTitles = false
+//        habitNavContr.navigationBar.backgroundColor = .white
     }
 
-    navigationController?.present(habitNavContr, animated: true)
+//    navigationController?.present(habitNavContr, animated: true)
 
 
 
 }
 
-extension HabitsViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+extension TodayViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 2
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if section == 0 {
+
         return 1
-        } else {
-            return HabitsStore.shared.habits.count
-    }
+
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if indexPath.section == 0 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.reuseIdentifier, for: indexPath) as! HabitCollectionViewCell
-            cell.configure(progress: HabitsStore.shared.todayProgress, title: "\(Int(HabitsStore.shared.todayProgress))%")
-            cell.backgroundColor = .white
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.reuseIdentifier, for: indexPath) as! InjectorsCollectionViewCell
 
             return cell
-        } else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.collectionID, for: indexPath) as! SaveHabitCollectionViewCell
-            let habit = HabitsStore.shared.habits[indexPath.row]
-            cell.configure(title: habit.name, time: "time", color: habit.color)
-            cell.backgroundColor = .white
 
-            return cell
+
+//            cell.backgroundColor = .white
+
         }
 
-        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            sizeOfCollectionView()
-        }
-    }
+//        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+////            sizeOfCollectionView()
+//
+//    }
+}
 
 
 
