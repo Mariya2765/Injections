@@ -27,7 +27,7 @@ class TodayViewController: UIViewController {
         collectionView.backgroundColor = UIColor(red: 0.67, green: 0.79, blue: 0.74, alpha: 1.5)
         collectionView.showsVerticalScrollIndicator = true
         collectionView.register(InjectorsCollectionViewCell.self, forCellWithReuseIdentifier: Constants.reuseIdentifier)
-        collectionView.register(SaveInjectCollectionViewCell.self, forCellWithReuseIdentifier: Constants.collectionID)
+//        collectionView.register(SaveInjectCollectionViewCell.self, forCellWithReuseIdentifier: Constants.collectionID)
 
         navigationItem.title = "Сегодня"
 
@@ -46,6 +46,7 @@ class TodayViewController: UIViewController {
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
+    //кнопка "добавить инъекцию"
     @objc private func addNewInject() {
 //        let habitVc = HabitViewController()
 //        let habitNavContr = UINavigationController(rootViewController: habitVc)
@@ -67,24 +68,55 @@ class TodayViewController: UIViewController {
 extension TodayViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
+        return 1
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-
+// количество инъекций в день
         return 1
 
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.reuseIdentifier, for: indexPath) as! InjectorsCollectionViewCell
-
+        cell.backgroundColor = UIColor(red: 0.96, green: 0.75, blue: 0.67, alpha: 1.00)
             return cell
 
-
-//            cell.backgroundColor = .white
-
         }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        sizeOfCollectionView()
+//        CGSize(width: UIScreen.main.bounds.width - 48/3, height: 100)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        10
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        40
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        .init(
+            top: 25,
+            left: 8,
+            bottom: 8,
+            right: 8
+        )
+    }
+
+    private func sizeOfCollectionView() -> CGSize {
+//        let numberOfCells: CGFloat = 1
+//        let offsetBetweenCells: CGFloat = 8
+
+        let offsetFromCellToScreen: CGFloat = 20
+        let cellHeight: CGFloat = 100
+        let screenWidth = UIScreen.main.bounds.width
+//        let side = (screenWidth - offsetBetweenCells * (numberOfCells - 1) - offsetFromCellToScreen * 2) / numberOfCells
+        let cellWidth = screenWidth - offsetFromCellToScreen * 2
+        let sizeOfCell = CGSize(width: cellWidth, height: cellHeight)
+        return sizeOfCell
+    }
 
 //        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 ////            sizeOfCollectionView()

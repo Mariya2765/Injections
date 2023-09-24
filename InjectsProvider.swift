@@ -25,13 +25,13 @@ public class InjectsProvider {
             ),
 
             Medicine(
-                medID: 0,
+                medID: 1,
                 image: "hear",
                 textName: "Копаксон"
             ),
 
             Medicine(
-                medID: 0,
+                medID: 2,
                 image: "shoeprints",
                 textName: "Эумилео"
             )
