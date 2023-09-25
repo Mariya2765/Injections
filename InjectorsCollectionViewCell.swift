@@ -10,6 +10,7 @@ import UIKit
 class InjectorsCollectionViewCell: UICollectionViewCell {
 
     static let reusebleID = "collection ID"
+    private var medID: Int?
 
     private let injectLabel: UILabel = {
         let text = UILabel()
@@ -97,7 +98,7 @@ class InjectorsCollectionViewCell: UICollectionViewCell {
 
 
     func configure(injects: Medicine) {
-    
+        self.medID = injects.medID
 
         injectLabel.text = injects.textName
         injectImageView.image = UIImage(named: injects.image)

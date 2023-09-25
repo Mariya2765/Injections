@@ -13,6 +13,7 @@ class TodayViewController: UIViewController {
         static let reuseIdentifier = "collection_cell"
         static let collectionID = "collectID"
     }
+    private let injectsArray = InjectsProvider.getMedicine()
 
 
     private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
@@ -80,6 +81,9 @@ extension TodayViewController: UICollectionViewDelegateFlowLayout, UICollectionV
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.reuseIdentifier, for: indexPath) as! InjectorsCollectionViewCell
         cell.backgroundColor = UIColor(red: 0.96, green: 0.75, blue: 0.67, alpha: 1.00)
+        let injects = injectsArray[indexPath.row]
+        cell.configure(injects: injects)
+
             return cell
 
         }
@@ -110,7 +114,7 @@ extension TodayViewController: UICollectionViewDelegateFlowLayout, UICollectionV
 //        let offsetBetweenCells: CGFloat = 8
 
         let offsetFromCellToScreen: CGFloat = 20
-        let cellHeight: CGFloat = 100
+        let cellHeight: CGFloat = 200
         let screenWidth = UIScreen.main.bounds.width
 //        let side = (screenWidth - offsetBetweenCells * (numberOfCells - 1) - offsetFromCellToScreen * 2) / numberOfCells
         let cellWidth = screenWidth - offsetFromCellToScreen * 2
