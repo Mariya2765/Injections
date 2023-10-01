@@ -114,7 +114,7 @@ extension TodayViewController: UICollectionViewDelegateFlowLayout, UICollectionV
 //        let offsetBetweenCells: CGFloat = 8
 
         let offsetFromCellToScreen: CGFloat = 20
-        let cellHeight: CGFloat = 200
+        let cellHeight: CGFloat = 250
         let screenWidth = UIScreen.main.bounds.width
 //        let side = (screenWidth - offsetBetweenCells * (numberOfCells - 1) - offsetFromCellToScreen * 2) / numberOfCells
         let cellWidth = screenWidth - offsetFromCellToScreen * 2

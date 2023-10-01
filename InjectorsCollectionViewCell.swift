@@ -22,15 +22,34 @@ class InjectorsCollectionViewCell: UICollectionViewCell {
         return text
     }()
 
+    private let timeInjectLabel: UILabel = {
+        let timeText = UILabel()
+        timeText.font = .systemFont(ofSize: 14, weight: .light)
+        timeText.textColor = .black
+
+        timeText.translatesAutoresizingMaskIntoConstraints = false
+        return timeText
+
+    }()
+
     private let injectImageView: UIImageView = {
         let image = UIImageView()
         image.contentMode = .scaleAspectFill
 //        image.backgroundColor = .white
         image.translatesAutoresizingMaskIntoConstraints = false
         image.isUserInteractionEnabled = true
-        image.clipsToBounds = true
+        image.clipsToBounds = false
 
         return image
+    }()
+
+    private var timerLabel: UILabel = {
+        let timer = UILabel()
+        timer.font = .systemFont(ofSize: 14, weight: .light)
+        timer.textColor = .black
+        timer.translatesAutoresizingMaskIntoConstraints = false
+
+        return timer
     }()
 
 
@@ -67,8 +86,10 @@ class InjectorsCollectionViewCell: UICollectionViewCell {
 //        colorView.addSubview(injectLabel)
 //        colorView.addSubview(injectImageView)
         contentView.addSubview(injectLabel)
-        contentView.addSubview(injectImageView)
 
+        contentView.addSubview(injectImageView)
+        contentView.addSubview(timeInjectLabel)
+        contentView.addSubview(timerLabel)
 
     }
 
@@ -80,17 +101,28 @@ class InjectorsCollectionViewCell: UICollectionViewCell {
 //            colorView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
 //            colorView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
 
-            injectImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-//            injectImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20),
+            injectImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 30),
+
             injectImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
             injectImageView.heightAnchor.constraint(equalToConstant: 80),
             injectImageView.widthAnchor.constraint(equalTo: injectImageView.heightAnchor),
 
-            injectLabel.topAnchor.constraint(equalTo:  injectImageView.topAnchor, constant: 20),
+
+            injectLabel.topAnchor.constraint(equalTo:  contentView.topAnchor, constant: 20),
             injectLabel.leadingAnchor.constraint(equalTo: injectImageView.trailingAnchor, constant: 15),
             injectLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15),
-            injectLabel.bottomAnchor.constraint(equalTo: injectImageView.bottomAnchor, constant: -40)
+            injectLabel.bottomAnchor.constraint(equalTo: injectImageView.bottomAnchor, constant: -40),
 
+
+            timeInjectLabel.topAnchor.constraint(equalTo:  injectLabel.bottomAnchor, constant: 3),
+            timeInjectLabel.leadingAnchor.constraint(equalTo: injectImageView.trailingAnchor, constant: 15),
+            timeInjectLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15),
+            timeInjectLabel.bottomAnchor.constraint(equalTo: injectImageView.bottomAnchor, constant: -10),
+
+            timerLabel.topAnchor.constraint(equalTo:  timeInjectLabel.bottomAnchor, constant: 3),
+            timerLabel.leadingAnchor.constraint(equalTo: injectImageView.trailingAnchor, constant: 15),
+            timerLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15),
+            timerLabel.bottomAnchor.constraint(equalTo: injectImageView.bottomAnchor, constant: 20)
 
         ])
     }
@@ -102,7 +134,8 @@ class InjectorsCollectionViewCell: UICollectionViewCell {
 
         injectLabel.text = injects.textName
         injectImageView.image = UIImage(named: injects.image)
-
+        timeInjectLabel.text = injects.time
+        timerLabel.text = "Таймер"
 
     }
 }

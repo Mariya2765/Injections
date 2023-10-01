@@ -12,6 +12,7 @@ struct Medicine {
     let medID: Int
     let image: String
     var textName: String
+    var time: String
 
 }
 
@@ -21,19 +22,22 @@ public class InjectsProvider {
             Medicine(
                 medID: 0,
                 image: "hand",
-                textName: "Инфибета"
+                textName: "Инфибета",
+                time: "Время укола 22.00"
             ),
 
             Medicine(
                 medID: 1,
                 image: "hear",
-                textName: "Копаксон"
+                textName: "Копаксон",
+                time: "Время укола 22.00"
             ),
 
             Medicine(
                 medID: 2,
                 image: "shoeprints",
-                textName: "Эумилео"
+                textName: "Эумилео",
+                time: "Время укола 22.00"
             )
         ]
     }
